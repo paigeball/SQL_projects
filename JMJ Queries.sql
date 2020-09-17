@@ -15,3 +15,9 @@ FROM elliedb.loan
 GROUP BY mortgagetype
 ORDER BY "Average Base Loan Amount" DESC
 
+--Returns the amount of homebuyers per mortgage type that are first time buyers
+SELECT mortgagetype AS "Mortgage Type", COUNT(firsttimehomebuyersindicator) AS "First Time Buyers"
+FROM elliedb.loan
+WHERE firsttimehomebuyersindicator = TRUE
+GROUP BY "Mortgage Type"
+ORDER BY "First Time Buyers" DESC
