@@ -21,3 +21,9 @@ FROM elliedb.loan
 WHERE firsttimehomebuyersindicator = TRUE
 GROUP BY "Mortgage Type"
 ORDER BY "First Time Buyers" DESC
+
+--Returns the top methods for taking applications from borrowers 
+SELECT applicationtakenmethodtype AS "Method", COUNT(applicationtakenmethodtype) AS "Number of Apps"
+FROM elliedb.loan
+GROUP BY "Method"
+ORDER BY "Number of Apps" DESC
